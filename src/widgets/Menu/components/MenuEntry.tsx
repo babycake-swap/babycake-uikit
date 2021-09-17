@@ -33,7 +33,8 @@ const MenuEntry = styled.div<Props>`
   align-items: center;
   height: ${MENU_ENTRY_HEIGHT}px;
   padding: ${({ secondary }) => (secondary ? "0 32px" : "0 16px")};
-  font-size: ${({ secondary }) => (secondary ? "14px" : "16px")};
+  font-size: ${({ secondary }) => (secondary ? "18px" : "20px")};
+  font-weight: bold;
   background-color: ${({ secondary, theme }) => (secondary ? theme.isDark ? theme.colors.background : "#fbdee8" : "transparent")};
   color: ${({ theme }) => theme.isDark ? theme.colors.text : "#F04D92"};
   box-shadow: ${({ isActive, hideShadow, theme }) => (!hideShadow && isActive ? `inset 4px 0px 0px ${theme.colors.primary}` : "none")};

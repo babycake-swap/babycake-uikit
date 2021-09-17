@@ -22,13 +22,13 @@ const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   .mobile-icon {
-    width: 60px;
+    width: 120px;
     ${({ theme }) => theme.mediaQueries.nav} {
       display: none;
     }
   }
   .desktop-icon {
-    width: 60px;
+    width: 180px;
     display: none;
     ${({ theme }) => theme.mediaQueries.nav} {
       display: block;
@@ -61,13 +61,14 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
   const innerLogo = (
     <>
       <LogoIcon className="mobile-icon" />
-      <LogoWithText className="desktop-icon" isDark={isDark} />
+      <LogoIcon className="desktop-icon" />
+      {/* <LogoWithText className="desktop-icon" isDark={isDark} /> */}
     </>
   );
 
   return (
-    <Flex>
-      <StyledMenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">
+    <Flex alignItems="center">
+      <StyledMenuButton aria-label="Toggle menu" onClick={togglePush} mr="5px">
         {isPushed ? (
           <HamburgerCloseIcon width="24px" color={isDark ? "textSubtle" : "#F04D92"} />
         ) : (

@@ -18,7 +18,7 @@ const Container = styled.div`
   display: none;
   overflow-y: auto;
   overflow-x: hidden;
-  margin-left: 50px;
+  margin-right: 85px;
 
   ${({ theme }) => theme.mediaQueries.nav} {
     display: flex;
@@ -40,7 +40,7 @@ const NavMenu: React.FC<Props> = ({ isPushed, links }) => {
         return (
           <MenuEntry key={entry.label} isActive={entry.href === location.pathname} className={calloutClass} hideShadow>
             <MenuLink href={entry.href}>
-              {iconElement}
+              {/* {iconElement} */}
               <LinkLabel isPushed={isPushed}>{entry.label}</LinkLabel>
             </MenuLink>
           </MenuEntry>

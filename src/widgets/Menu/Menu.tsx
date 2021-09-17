@@ -30,7 +30,6 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   width: 100%;
   height: ${MENU_HEIGHT}px;
   background-color: transparent;
-  border-bottom: solid 2px rgba(133, 133, 133, 0.1);
   z-index: 20;
   transform: translate3d(0, 0, 0);
 `;
@@ -108,7 +107,7 @@ const Menu: React.FC<NavProps> = ({
 
   // Find the home link if provided
   // const homeLink = links.find((link) => link.label === "Home");
-  const homeLink = "https://thoge.app";
+  const homeLink = "https://babycake.app";
   
   return (
     <Wrapper>
