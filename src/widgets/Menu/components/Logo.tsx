@@ -22,13 +22,13 @@ const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   .mobile-icon {
-    width: 120px;
+    width: 60px;
     ${({ theme }) => theme.mediaQueries.nav} {
       display: none;
     }
   }
   .desktop-icon {
-    width: 180px;
+    width: 210px;
     display: none;
     ${({ theme }) => theme.mediaQueries.nav} {
       display: block;
@@ -48,35 +48,26 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const StyledMenuButton = styled(MenuButton)`
-  display: block;
-
-  ${({ theme }) => theme.mediaQueries.nav} {
-    display: none;
-  }
-`
-
 const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
   const isAbsoluteUrl = href.startsWith("http");
   const innerLogo = (
     <>
       <LogoIcon className="mobile-icon" />
-      <LogoIcon className="desktop-icon" />
-      {/* <LogoWithText className="desktop-icon" isDark={isDark} /> */}
+      <LogoWithText className="desktop-icon" isDark={isDark} />
     </>
   );
 
   return (
     <Flex alignItems="center">
-      <StyledMenuButton aria-label="Toggle menu" onClick={togglePush} mr="5px">
+      <MenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">
         {isPushed ? (
-          <HamburgerCloseIcon width="24px" color={isDark ? "textSubtle" : "#F04D92"} />
+          <HamburgerCloseIcon width="24px" color={isDark ? "textSubtle" : "#1E2436"} />
         ) : (
-          <HamburgerIcon width="24px" color={isDark ? "textSubtle" : "#F04D92"} />
+          <HamburgerIcon width="24px" color={isDark ? "textSubtle" : "#1E2436"} />
         )}
-      </StyledMenuButton>
+      </MenuButton>
       {isAbsoluteUrl ? (
-        <StyledLink as="a" href={href} target="_blank" aria-label="Pancake home page">
+        <StyledLink as="a" href={href} aria-label="Pancake home page">
           {innerLogo}
         </StyledLink>
       ) : (

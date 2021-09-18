@@ -26,7 +26,7 @@ const AccordionContent = styled.div<{ isOpen: boolean; isPushed: boolean; maxHei
   max-height: ${({ isOpen, maxHeight }) => (isOpen ? `${maxHeight}px` : 0)};
   transition: max-height 0.3s ease-out;
   overflow: hidden;
-  border-color: ${({ isOpen, isPushed }) => (isOpen && isPushed ? "rgba(133, 133, 133, 0.1)" : "transparent")};
+  border-color: ${({ isOpen, isPushed }) => (isOpen && isPushed ? "rgba(133, 133, 133, 0)" : "transparent")};
   border-style: solid;
   border-width: 1px 0;
 `;
@@ -55,7 +55,7 @@ const Accordion: React.FC<Props> = ({
   return (
     <Container>
       <MenuEntry onClick={handleClick} className={className} isActive={isActive}>
-        {icon}
+        {/* {icon} */}
         <LinkLabel isPushed={isPushed}>{label}</LinkLabel>
         {status && (
           <LinkStatusComponent color={status.color} fontSize="14px">

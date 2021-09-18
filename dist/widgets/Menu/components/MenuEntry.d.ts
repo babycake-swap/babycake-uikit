@@ -3,7 +3,6 @@ import { DefaultTheme } from "styled-components";
 import { Colors } from "../../../theme/types";
 export interface Props {
     secondary?: boolean;
-    hideShadow?: boolean;
     isActive?: boolean;
     theme: DefaultTheme;
 }

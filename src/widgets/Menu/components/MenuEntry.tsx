@@ -6,7 +6,6 @@ import { MENU_ENTRY_HEIGHT } from "../config";
 
 export interface Props {
   secondary?: boolean;
-  hideShadow?: boolean;
   isActive?: boolean;
   theme: DefaultTheme;
 }
@@ -22,7 +21,7 @@ const rainbowAnimation = keyframes`
 `;
 
 const LinkLabel = styled.div<{ isPushed: boolean }>`
-  color: ${({ isPushed, theme }) => (isPushed ? (theme.isDark ? theme.colors.text : '#F04D92') : "transparent")};
+  color: ${({ isPushed, theme }) => (isPushed ? (theme.isDark ? theme.colors.textSubtle : '#1E2436') : "transparent")};
   transition: color 0.4s;
   flex-grow: 1;
 `;
@@ -32,12 +31,12 @@ const MenuEntry = styled.div<Props>`
   display: flex;
   align-items: center;
   height: ${MENU_ENTRY_HEIGHT}px;
-  padding: ${({ secondary }) => (secondary ? "0 32px" : "0 16px")};
-  font-size: ${({ secondary }) => (secondary ? "18px" : "20px")};
-  font-weight: bold;
-  background-color: ${({ secondary, theme }) => (secondary ? theme.isDark ? theme.colors.background : "#fbdee8" : "transparent")};
-  color: ${({ theme }) => theme.isDark ? theme.colors.text : "#F04D92"};
-  box-shadow: ${({ isActive, hideShadow, theme }) => (!hideShadow && isActive ? `inset 4px 0px 0px ${theme.colors.primary}` : "none")};
+  padding: ${({ secondary }) => (secondary ? "0 36px" : "0 16px")};
+  font-size: ${({ secondary }) => (secondary ? "18px" : "19px")};
+  font-weight: ${({ secondary }) => (secondary ? "normal" : "bold")};
+  background-color: ${({ secondary, theme }) => (theme.isDark ? theme.colors.background : "transparent")};
+  color: ${({ theme }) => theme.isDark ? theme.colors.textSubtle : "#1E2436"};
+  box-shadow: ${({ isActive, theme }) => (isActive ? `inset 4px 0px 0px ${theme.colors.primary}` : "none")};
 
   a {
     display: flex;
@@ -47,7 +46,7 @@ const MenuEntry = styled.div<Props>`
   }
 
   svg {
-    fill: ${({ theme }) => theme.isDark ? theme.colors.text : '#F04D92'};
+    fill: ${({ theme }) => theme.isDark ? theme.colors.textSubtle : '#1E2436'};
   }
 
   &:hover {

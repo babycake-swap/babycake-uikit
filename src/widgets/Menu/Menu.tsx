@@ -10,7 +10,6 @@ import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
 import Avatar from "./components/Avatar";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
-import NavMenu from "./components/NavMenu";
 
 const Wrapper = styled.div`
   position: relative;
@@ -25,11 +24,12 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 18px;
+  padding-left: 8px;
   padding-right: 16px;
   width: 100%;
   height: ${MENU_HEIGHT}px;
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.nav.background};
+  border-bottom: solid 2px rgba(133, 133, 133, 0.1);
   z-index: 20;
   transform: translate3d(0, 0, 0);
 `;
@@ -45,6 +45,11 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translate3d(0, 0, 0);
   max-width: 100%;
+
+  ${({ theme }) => theme.mediaQueries.nav} {
+    margin-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
+    max-width: ${({ isPushed }) => `calc(100% - ${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px)`};
+  }
 `;
 
 const MobileOnlyOverlay = styled(Overlay)`
@@ -66,6 +71,7 @@ const Menu: React.FC<NavProps> = ({
   setLang,
   currentLang,
   cakePriceUsd,
+  ypantyPriceUsd,
   links,
   profile,
   children,
@@ -106,9 +112,8 @@ const Menu: React.FC<NavProps> = ({
   }, []);
 
   // Find the home link if provided
-  // const homeLink = links.find((link) => link.label === "Home");
-  const homeLink = "https://babycake.app";
-  
+  const homeLink = links.find((link) => link.label === "Home");
+
   return (
     <Wrapper>
       <StyledNav showMenu={showMenu}>
@@ -116,10 +121,8 @@ const Menu: React.FC<NavProps> = ({
           isPushed={isPushed}
           togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
           isDark={isDark}
-          href={homeLink}
-          // href={homeLink?.href ?? "/"}
+          href={homeLink?.href ?? "/"}
         />
-        <NavMenu isPushed={isPushed} links={links} />
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />
           {/* {profile && <Avatar profile={profile} />} */}
@@ -136,6 +139,7 @@ const Menu: React.FC<NavProps> = ({
           setLang={setLang}
           currentLang={currentLang}
           cakePriceUsd={cakePriceUsd}
+          ypantyPriceUsd={ypantyPriceUsd}
           pushNav={setIsPushed}
           links={links}
         />
