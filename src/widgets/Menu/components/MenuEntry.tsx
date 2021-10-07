@@ -31,26 +31,37 @@ const MenuEntry = styled.div<Props>`
   display: flex;
   align-items: center;
   height: ${MENU_ENTRY_HEIGHT}px;
-  padding: ${({ secondary }) => (secondary ? "0 39px" : "0 22px")};
+  padding: ${({ secondary }) => (secondary ? "10px 52px" : "10px 36px")};
   font-size: ${({ secondary }) => (secondary ? "18px" : "19px")};
-  font-weight: ${({ secondary }) => (secondary ? "normal" : "bold")};
-  background-color: ${({ secondary, theme }) => (theme.isDark ? theme.colors.background : "transparent")};
+  font-weight: ${({ isActive }) => (isActive ? "bold" : "normal")};
+  // background-color: ${({ secondary, theme }) => (theme.isDark ? theme.colors.background : "transparent")};
   color: ${({ theme }) => theme.isDark ? theme.colors.textSubtle : "#1E2436"};
-  box-shadow: ${({ isActive, theme }) => (isActive ? `inset 4px 0px 0px ${theme.colors.primary}` : "none")};
+  // box-shadow: ${({ isActive, theme }) => (isActive ? `inset 4px 0px 0px ${theme.colors.primary}` : "none")};
 
   a {
     display: flex;
     align-items: center;
     width: 100%;
     height: 100%;
+
+    background-color: ${({ isActive, theme }) => (isActive ? "#FFFFFF" : "transparent")};
+    border-radius: 6px;
+    padding: ${({ secondary }) => (secondary ? "8px 15px" : "8px 5px")};
   }
 
-  svg {
+  svg:first-child {
+    // fill: ${({ theme }) => theme.isDark ? theme.colors.textSubtle : '#1E2436'};
+    fill: none;
+  }
+
+  svg:last-child {
     fill: ${({ theme }) => theme.isDark ? theme.colors.textSubtle : '#1E2436'};
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.tertiary};
+    a {
+      background-color: #FFFFFF;
+    }
   }
 
   // Safari fix

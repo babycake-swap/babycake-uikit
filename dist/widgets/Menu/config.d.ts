@@ -50,6 +50,6 @@ export declare const socials: {
     href: string;
 }[];
 export declare const MENU_HEIGHT = 75;
-export declare const MENU_ENTRY_HEIGHT = 52;
-export declare const SIDEBAR_WIDTH_FULL = 240;
+export declare const MENU_ENTRY_HEIGHT = 68;
+export declare const SIDEBAR_WIDTH_FULL = 297;
 export declare const SIDEBAR_WIDTH_REDUCED = 0;

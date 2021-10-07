@@ -1,3 +1,6 @@
+export { default as CalculatorIcon } from "./Calculator";
+export { default as ChartIcon } from "./Chart";
+export { default as DashboardIcon } from "./Dashboard";
 export { default as FarmIcon } from "./Farm";
 export { default as GroupsIcon } from "./Groups";
 export { default as HamburgerIcon } from "./Hamburger";
@@ -19,3 +22,4 @@ export { default as TicketIcon } from "./Ticket";
 export { default as TradeIcon } from "./Trade";
 export { default as PresaleIcon } from "./Presale";
 export { default as TwitterIcon } from "./Twitter";
+export { default as WebsiteIcon } from "./Website";

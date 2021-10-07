@@ -153,6 +153,6 @@ export const socials = [
 ];
 
 export const MENU_HEIGHT = 75;
-export const MENU_ENTRY_HEIGHT = 52;
-export const SIDEBAR_WIDTH_FULL = 240;
+export const MENU_ENTRY_HEIGHT = 68;
+export const SIDEBAR_WIDTH_FULL = 297;
 export const SIDEBAR_WIDTH_REDUCED = 0;
